@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./index_files/index.css">
+    <title>ニコリ(仮)検索 (v2)</title>
+    <script src="./index_files/index.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="header-wrapper">
+            <h1>ニコリ(仮)検索 (v2)</h1>
+            <p id="infomation" style="margin: 0%; text-align: center;"></p>
+            <div class="header-search">
+                <input type="text" id="search-input" placeholder="検索...">
+                <button id="clear-button">&times;</button>
+                <button id="search-button" onclick="searchVideos()">検索</button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="search-order" style="min-height: 2.5em;">
+            <details style="vertical-align: middle;">
+                <summary>ジャンル選択はこちら</summary>
+                <label><input type="checkbox" name="genres" value="music_sound">音楽・サウンド</label><br>
+                <label><input type="checkbox" name="genres" value="game">ゲーム</label><br>
+                <label><input type="checkbox" name="genres" value="entertainment">エンターテイメント</label><br>
+                <label><input type="checkbox" name="genres" value="anime">アニメ</label><br>
+                <label><input type="checkbox" name="genres" value="radio">ラジオ</label><br>
+                <label><input type="checkbox" name="genres" value="animal">動物</label><br>
+                <label><input type="checkbox" name="genres" value="technology_craft">技術・工作</label><br>
+                <label><input type="checkbox" name="genres" value="nature">自然</label><br>
+                <label><input type="checkbox" name="genres" value="commentary_lecture">解説・講座</label><br>
+                <label><input type="checkbox" name="genres" value="sports">スポーツ</label><br>
+                <label><input type="checkbox" name="genres" value="cooking">料理</label><br>
+                <label><input type="checkbox" name="genres" value="dance">ダンス</label><br>
+                <label><input type="checkbox" name="genres" value="society_politics_news">社会・政治・時事</label><br>
+                <label><input type="checkbox" name="genres" value="vehicle">乗り物</label><br>
+                <label><input type="checkbox" name="genres" value="other">その他</label><br>
+                <label><input type="checkbox" name="genres" value="none">未設定</label><br>
+            </details>
+            <select id="source" style="height: 2.5em;">
+                <option selected value="2019">2019</option>
+                <option disabled>(以下は視聴不可)</option>
+                <option value="2007">2007</option>
+                <option value="2008">2008</option>
+                <option value="2009">2009</option>
+                <option value="2010">2010</option>
+                <option value="2011">2011</option>
+                <option value="2012">2012</option>
+                <option value="2013">2013</option>
+                <option value="2014">2014</option>
+                <option value="2015">2015</option>
+                <option value="8817">人類には早すぎる動画</option>
+                <option value="2016">2016</option>
+                <option value="8818">才能の無駄遣い</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="72021">ボカコレ 2021</option>
+                <option value="72020">ボカコレ 2020</option>
+                <option value="70001">ボカコレ 人気ボカロP特集</option>
+                <option value="72019">ボカコレ 2019</option>
+                <option value="72018">ボカコレ 2018</option>
+                <option value="72017">ボカコレ 2017</option>
+                <option value="70002">ボカコレ ボカロ好ききっかけ</option>
+                <option value="72016">ボカコレ 2016</option>
+            </select>
+            <select id="order" style="height: 2.5em;">
+                <option value="plays-decreasing">再生回数（降順）</option>
+                <option value="plays-ascending">再生回数（昇順）</option>
+                <option value="mylists-decreasing">マイリスト数（降順）</option>
+                <option value="mylists-ascending">マイリスト数（昇順）</option>
+                <option value="comments-decreasing">コメント数（降順）</option>
+                <option value="comments-ascending">コメント数（昇順）</option>
+                <option value="likes-decreasing">いいね数（降順）</option>
+                <option value="likes-ascending">いいね数（昇順）</option>
+                <option value="newer">新しい順</option>
+                <option value="older">古い順</option>
+            </select>
+        </div>
+        <div class="search-result" style="margin-bottom: 110px;"></div>
+    </main>
+    <footer style="position: fixed; bottom: 0%; width: 100%;">
+        <div style="display: flex; justify-content: center; flex-wrap: wrap;">
+            <div>
+                <a href="#"><font size="5" color="red">トップに戻る</font></a>
+                <a style="font-size: 150%;" href="https://twitter.com/share?url=https://nicorekari.nanasi-rasi.net&hashtags=ニコリ仮検索,ニコニコ動画&text=私はニコリ(仮)検索を利用しています！%0dニコニコ動画(Re:仮)といっしょに、どうですか？" rel="nofollow noopener" target="_blank">Twitterで共有</a>
+            
+            </div>
+            <div>
+                <p style="margin: 0%; text-align: center; font-size: 85%;">Copyright © <a href="https://x.com/nanasi_rasi">ななしぃ(nanasi_rasi)</a> &amp; <a href="https://x.com/kdxnnn">名前 さん (kdxnnn)</a>  All Rights Reserved.</p>
+                <p style="margin-top: 0%; margin-bottom: 0%; margin-left: 7%; margin-right: 7%; text-align: center; font-size: 77%;">ニコリ(仮)検索は、株式会社dwangoおよびKADOKAWA Corporationとは一切関係のないサービスです。<br>サムネイル等の権利は、すべてニコニコ動画の規約等で定められた権利者に帰属します。</p>
+                <p id="count" style="margin: 0%; text-align: center;">取得中...</p>
+            </div>
+        </div>
+        </footer>
+</body>
+</html>

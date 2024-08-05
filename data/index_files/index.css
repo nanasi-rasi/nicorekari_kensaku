@@ -1,0 +1,184 @@
+* {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    flex: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header h1 {
+    margin: 1em 0 0.5em 0;
+    font-family: "Kosugi Maru", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+header .header-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: .5em;
+    background-color: #efefef;
+    width: 100%;
+}
+
+header .header-wrapper .header-search {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5em 0;
+    position: relative;
+}
+
+header .header-wrapper .header-search input[type="text"] {
+    width: 100%;
+    padding: 0.5em;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+header .header-wrapper .header-search #clear-button {
+    position: absolute;
+    right: 3.5em;
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+header .header-wrapper .header-search #search-button {
+    width: 5em;
+}
+
+header .header-wrapper .header-search button {
+    padding: 0.5em;
+    font-size: 1em;
+}
+
+main {
+    flex: 1;
+}
+
+main .search-order {
+    margin: .5em;
+    display: flex;
+    justify-content: right;
+    flex-wrap: wrap;
+}
+
+main .search-result {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 300px);
+    justify-content: center;
+    gap: 1em 1.5em;
+    margin: 1em;
+}
+
+@media screen and (max-width: 699px) {
+    main .search-result {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1em;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+main .search-result .video {
+    display: flex;
+    gap: .5em;
+    border: solid 1px gray;
+    border-radius: 5px;
+    padding: .2em;
+    background-color: #efefef;
+    box-shadow: 2px 2px 2px #d3d3d3;
+    width: 300px;
+    aspect-ratio: 2/1;
+    transition: all .1s linear;
+}
+
+@media screen and (max-width: 699px) {
+    main .search-result .video {
+        width: 90%;
+    }
+}
+
+main .search-result .video .left {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: .2em;
+    margin: .2em;
+}
+
+main .search-result .video .left .thumbnail {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 100%;
+    aspect-ratio: 16/9;
+    background-image: url(../payload/thumbnail.png);
+    background-color: #000;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+main .search-result .video .left .thumbnail .duration {
+    font-size: xx-small;
+    color: #fff;
+    background-color: gray;
+    border: solid 1px #000;
+    border-radius: 15%;
+    width: fit-content;
+    padding-left: .2em;
+    padding-right: .2em;
+    opacity: .9;
+}
+
+main .search-result .video .left .information {
+    font-size: xx-small;
+}
+
+main .search-result .video .right {
+    flex: 3;
+    min-width: 0;
+    margin: .2em;
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}
+
+main .search-result .video .right .description {
+    font-size: x-small;
+    overflow: hidden;
+}
+
+main .search-result .video:hover {
+    transform: scale(1.02);
+}
+
+footer {
+    flex: 0;
+    text-align: right;
+    padding: .5em;
+    background-color: #efefef;
+}
